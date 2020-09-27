@@ -132,9 +132,46 @@ function inverterArrayUtilizandoForCriandoNovoArray() {
 
   let arrayInvertido = [];
 
-  for (x = arrayOriginal.length - 1; x > -1; x--) {
+  for (x = arrayOriginal.length - 1; x >= 0; x--) {
     arrayInvertido.push(arrayOriginal[x]);
   }
 
   return alert("E esse é o mesmo array só que invertido: " + arrayInvertido);
 }
+
+//bugado, tem que corrigir
+function inverterArrayUtilizandoForSemCriarNovoArray() {
+  let arrayNumeros = [10, 11, 12, 13, 14, 15];
+  
+  for(x = 0; x < arrayNumeros.length; x++){
+    //console.log("Array X" + arrayNumeros[x]);   
+    for(y = arrayNumeros.length - 1; y >= 0; y--){
+      let aux = arrayNumeros[x];
+      arrayNumeros[x] = arrayNumeros[y];
+      //arrayNumeros[x + 1] = aux;
+      //console.log(arrayNumeros[y])
+    }
+  }
+
+  console.log(arrayNumeros)
+}
+
+function numerosDeUmArrayMaioresQue20() {
+  let arrayNumeros = [25, 32, 19, 5];
+
+  alert("Em um array de números " + arrayNumeros + " os maiores que 20 são: ");
+
+  for(x = 0; x < arrayNumeros.length; x++){
+    if(arrayNumeros[x] > 20){ 
+      alert(arrayNumeros[x]);
+    }
+  }
+}
+
+//TODO
+function organizarOrdemCrescente() {}
+//TODO
+function organizarOrdemDecrescente() {}
+
+//alguma funcionalidade para usar ForEach()...
+
