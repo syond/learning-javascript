@@ -142,10 +142,10 @@ function inverterArrayUtilizandoForCriandoNovoArray() {
 //bugado, tem que corrigir
 function inverterArrayUtilizandoForSemCriarNovoArray() {
   let arrayNumeros = [10, 11, 12, 13, 14, 15];
-  
-  for(x = 0; x < arrayNumeros.length; x++){
-    //console.log("Array X" + arrayNumeros[x]);   
-    for(y = arrayNumeros.length - 1; y >= 0; y--){
+
+  for (x = 0; x < arrayNumeros.length; x++) {
+    //console.log("Array X" + arrayNumeros[x]);
+    for (y = arrayNumeros.length - 1; y >= 0; y--) {
       let aux = arrayNumeros[x];
       arrayNumeros[x] = arrayNumeros[y];
       //arrayNumeros[x + 1] = aux;
@@ -153,7 +153,7 @@ function inverterArrayUtilizandoForSemCriarNovoArray() {
     }
   }
 
-  console.log(arrayNumeros)
+  console.log(arrayNumeros);
 }
 
 function numerosDeUmArrayMaioresQue20() {
@@ -161,17 +161,76 @@ function numerosDeUmArrayMaioresQue20() {
 
   alert("Em um array de números " + arrayNumeros + " os maiores que 20 são: ");
 
-  for(x = 0; x < arrayNumeros.length; x++){
-    if(arrayNumeros[x] > 20){ 
+  for (x = 0; x < arrayNumeros.length; x++) {
+    if (arrayNumeros[x] > 20) {
       alert(arrayNumeros[x]);
     }
   }
 }
 
-//TODO
-function organizarOrdemCrescente() {}
-//TODO
-function organizarOrdemDecrescente() {}
+//bug, tem que corrigir
+function organizarArrayOrdemCrescente() {
+  let arrayNumeros = [9, 2, 20, 8, 7];
+
+  alert(
+    "Dado o seguinte Array: " +
+      arrayNumeros +
+      " \n Vamos organizar em ordem crescente."
+  );
+
+  for (x = 0; x < arrayNumeros.length; x++) {
+    //Testa se a posição atual é maior do que a posição seguinte, se for ele faz a troca de valores das posições
+    if (arrayNumeros[x] > arrayNumeros[x + 1]) {
+      //Variável "aux" recebe o valor da posição seguinte para que o mesmo não seja perdido durante a troca
+      let aux = arrayNumeros[x + 1];
+
+      //Fazendo a troca
+      arrayNumeros[x + 1] = arrayNumeros[x];
+      arrayNumeros[x] = aux;
+
+      //Testa se a posição atual é menor que a posição anterior, se for ele faz a troca de valores
+      if (arrayNumeros[x] < arrayNumeros[x - 1]) {
+        //Utilizando a mesma variável "aux" para não perder o valor da posição anterior
+        aux = arrayNumeros[x - 1];
+
+        //Fazendo a troca
+        arrayNumeros[x - 1] = arrayNumeros[x];
+        arrayNumeros[x] = aux;
+      }
+    }
+  }
+
+  alert("Agora está em ordem crescente: " + arrayNumeros);
+}
+
+//bug, tem que corrigir
+function organizarArrayOrdemDecrescente() {
+  let arrayNumeros = [9, 3, 20, 8, 10];
+
+  let x = 0;
+
+  do {
+    if (arrayNumeros[x] < arrayNumeros[x + 1]) {
+      let aux = arrayNumeros[x + 1];
+
+      arrayNumeros[x + 1] = arrayNumeros[x];
+      arrayNumeros[x] = aux;
+
+      if (arrayNumeros[x] > arrayNumeros[x - 1]) {
+        aux = arrayNumeros[x - 1];
+
+        arrayNumeros[x - 1] = arrayNumeros[x];
+        arrayNumeros[x] = aux;
+      }
+    }
+
+    x++;
+
+  } while (arrayNumeros[x] < arrayNumeros[x + 1]);
+  
+  
+
+  console.log(arrayNumeros);
+}
 
 //alguma funcionalidade para usar ForEach()...
-
