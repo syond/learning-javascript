@@ -14,6 +14,17 @@ const number = function (busStops) {
   return stillInTheBus;
 };
 
-// Test exemple: 
+// Test exemple:
 // console.log(number([[10,0],[3,5],[5,8]]))
+// output must be: 5
+
+
+//Same thing but using Reduce
+const numberReduce = (busStops) =>
+  busStops.reduce(
+    (accumulator, [inTheBuss, offTheBuss]) => accumulator + inTheBuss - offTheBuss, 0
+  );
+
+// Test exemple:
+// console.log(numberReduce([[10,0],[3,5],[5,8]]))
 // output must be: 5
